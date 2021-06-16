@@ -1,0 +1,27 @@
+SO ./textures/redbrick.xpm
+
+
+
+WE ./textures/mossy.xpm
+
+
+
+EA ./textures/eagle.xpm
+
+
+
+
+NO ./textures/eagle.xpm
+
+F 25,25,245
+
+
+
+
+C 67,104,75
+
+11111
+10001
+1N001
+10001
+11111
