@@ -1,10 +1,10 @@
-SO ./textures/redbrick.xpm
+SO ./textures/OKS.xpm
 
-WE ./textures/mossy.xpm
+WE ./textures/OKW.xpm
 
-EA ./textures/eagle.xpm
+EA ./textures/OKE.xpm
 
-NO ./textures/wood.xpm
+NO ./textures/OKN.xpm
 
 F 100,100,100
 C 65,107,208

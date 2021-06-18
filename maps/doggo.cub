@@ -1,7 +1,7 @@
 R 1440 960
-NO ./textures/doggo2.xpm
+NO ./textures/doggo.xpm
 SO ./textures/doggo2.xpm
-EA ./textures/doggo2.xpm
+EA ./textures/doggo.xpm
 WE ./textures/doggo2.xpm
 F 102,153,0
 C 204,255,255

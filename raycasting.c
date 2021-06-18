@@ -41,18 +41,21 @@ int	draw_tex(int x, int y, t_tree *tree)
 		tree->ray.tex_y = (int)(tree->ray.tex_pos);
 		tree->ray.tex_pos += tree->ray.step;
 		if (tree->ray.tex_num == 'N')
-			tree->ray.color = tree->texture.tex_NO[tree->texture.n_tex_h
+		{
+			tree->ray.tex_y = (int)(tree->ray.tex_pos);
+			tree->ray.color = tree->texture.tex_NO[tree->texture.n_tex_w
 				* tree->ray.tex_y + tree->ray.tex_x];
+		}
 		else if (tree->ray.tex_num == 'S')
-			tree->ray.color = tree->texture.tex_SO[tree->texture.s_tex_h
+			tree->ray.color = tree->texture.tex_SO[tree->texture.s_tex_w
 				* tree->ray.tex_y + tree->ray.tex_x];
 		else if (tree->ray.tex_num == 'E')
 		{
-			tree->ray.color = tree->texture.tex_EA[tree->texture.e_tex_h
+			tree->ray.color = tree->texture.tex_EA[tree->texture.e_tex_w
 				* tree->ray.tex_y + tree->ray.tex_x];
 		}
 		else if (tree->ray.tex_num == 'W')
-			tree->ray.color = tree->texture.tex_WE[tree->texture.w_tex_h
+			tree->ray.color = tree->texture.tex_WE[tree->texture.w_tex_w
 				* tree->ray.tex_y + tree->ray.tex_x];
 		my_mlx_pixel_put(&tree->image, x, y, tree->ray.color);
 		y++;
@@ -86,13 +89,13 @@ void	raycasting(t_tree *tree)
 		tree->ray.wall_x -= floor(tree->ray.wall_x);
 		tex_select(tree);
 		if (tree->ray.tex_num == 'N')
-			tree->ray.step = 1.0 * tree->texture.n_tex_w / tree->ray.line_height;
+			tree->ray.step = 1.0 * tree->texture.n_tex_h / tree->ray.line_height;
 		else if (tree->ray.tex_num == 'S')
-			tree->ray.step = 1.0 * tree->texture.s_tex_w / tree->ray.line_height;
+			tree->ray.step = 1.0 * tree->texture.s_tex_h / tree->ray.line_height;
 		else if (tree->ray.tex_num == 'E')
-			tree->ray.step = 1.0 * tree->texture.e_tex_w / tree->ray.line_height;
+			tree->ray.step = 1.0 * tree->texture.e_tex_h / tree->ray.line_height;
 		else if (tree->ray.tex_num == 'W')
-			tree->ray.step = 1.0 * tree->texture.w_tex_w / tree->ray.line_height;
+			tree->ray.step = 1.0 * tree->texture.w_tex_h / tree->ray.line_height;
 		tree->ray.tex_pos = (tree->ray.draw_start - (tree->parsing.res_y / 2)
 				+ (tree->ray.line_height / 2)) * tree->ray.step;
 		y = 0;
