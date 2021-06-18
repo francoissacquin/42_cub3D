@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   error_message.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fsacquin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/18 16:15:29 by fsacquin          #+#    #+#             */
+/*   Updated: 2021/06/18 16:15:30 by fsacquin         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3D.h"
 
 void	error_message_parsing(int index)
@@ -24,6 +36,24 @@ void	error_message_parsing(int index)
 		printf("Error\nincorrect color code for C or F\n");
 	else if (index == 12)
 		printf("Error\nline containing wrong argument in .cub\n");
+}
+
+void	error_message_labyrinth_parsing(int index, t_tree *tree)
+{
+	if (index == 1)
+		printf("Error\n invalid character in labyrinth\n");
+	else if (index == 3)
+	{
+		printf("Error\n failure of memory allocation\n");
+		free_struc_labyrinth(tree);
+	}
+	else if (index == 4)
+	{
+		printf("Error\n several labyrinth detected\n");
+		free_struc_labyrinth(tree);
+	}
+	else if (index == 5)
+		printf("Error\nlabyrinth is missing from .cub file\n");
 }
 
 void	error_message_verify_labyrinth(int index)

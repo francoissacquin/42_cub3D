@@ -38,7 +38,8 @@ void	assign_texture(char **res_split, char c, char *str, t_tree *tree)
 		error_central_parsing(8, res_split, str, tree);
 }
 
-void	verify_texture_path(t_tree *tree, char **res_split, char *error, char *str)
+void	verify_texture_path(t_tree *tree, char **res_split,
+			char *error, char *str)
 {
 	int	i;
 

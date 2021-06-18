@@ -82,7 +82,7 @@ void	fix_resolution(t_tree *tree)
 	}
 	if (tree->parsing.res_x > 1920 || tree->parsing.res_y > 1080)
 	{
-		printf("Error\nres_x superior to 1920 or res_y superior to 1080, resolution was set to 960 540\n");
+		printf("Error\nres_x|res_y invalid, resolution was set to 960 540\n");
 		tree->parsing.res_x = 960;
 		tree->parsing.res_y = 540;
 	}

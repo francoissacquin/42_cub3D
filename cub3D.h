@@ -162,6 +162,7 @@ void	free_struc_labyrinth(t_tree *tree);
 //parsing functions for config.cub file :
 void	input_parsing(t_tree *tree);
 void	check_conveyor_belt(char **str, int lab_start_line, t_tree *tree);
+void	conveyor_belt_error(char **res_split, char *str, t_tree *tree);
 void	check_cf_color(char **res_split, char *str, t_tree *tree);
 void	check_cf_color_plus(char **res_split, char *str, t_tree *tree);
 void	cf_switch(char c, t_tree *tree);
@@ -171,6 +172,7 @@ void	assign_texture(char **res_split, char c, char *str, t_tree *tree);
 void	verify_texture_path(t_tree *tree, char **res_split, char *error,
 			char *str);
 char	texture_switch(char **res_split, t_tree *tree);
+void	clear_parsing(char *str, t_tree *tree);
 
 //color managing :
 int		convert_trgb_into_single_int(int t, int r, int g, int b);
@@ -253,6 +255,8 @@ void	calc_side_dist(t_tree *tree);
 void	ray_until_wall(t_tree *tree);
 void	draw_calc(t_tree *tree);
 void	tex_select(t_tree *tree);
+void	tex_x_calc(t_tree *tree);
+void	tex_step_calc(t_tree *tree);
 int		draw_ceiling(int x, int y, t_tree *tree);
 int		draw_tex(int x, int y, t_tree *tree);
 int		draw_floor(int x, int y, t_tree *tree);
@@ -262,6 +266,7 @@ void	error_central_general(int index);
 void	error_message_parsing(int index);
 void	error_central_parsing(int index, char **array, char *str, t_tree *tree);
 void	error_central_labyrinth_parsing(int index, char *str, t_tree *tree);
+void	error_message_labyrinth_parsing(int index, t_tree *tree);
 void	error_central_verify_labyrinth(int index, t_tree *tree);
 void	error_message_verify_labyrinth(int index);
 void	error_central_tex(int index, t_tree *tree);

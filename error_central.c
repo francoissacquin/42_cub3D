@@ -31,7 +31,7 @@ void	error_central_parsing(int index, char **array,
 	error_message_parsing(index);
 	free(str);
 	array = send_help((char const **)array, ft_strlen_array(array));
-	while((get_next_line(tree->parsing.fd, &s)) > 0)
+	while ((get_next_line(tree->parsing.fd, &s)) > 0)
 	{
 		free(s);
 		s = 0;
@@ -45,21 +45,8 @@ void	error_central_parsing(int index, char **array,
 
 void	error_central_labyrinth_parsing(int index, char *str, t_tree *tree)
 {
-	if (index == 1)
-		printf("Error\n invalid character in labyrinth\n");
-	else if (index == 3)
-	{
-		printf("Error\n failure of memory allocation\n");
-		free_struc_labyrinth(tree);
-	}
-	else if (index == 4)
-	{
-		printf("Error\n several labyrinth detected\n");
-		free_struc_labyrinth(tree);
-	}
-	else if (index == 5)
-		printf("Error\nlabyrinth is missing from .cub file\n");
-	if (str != 0)	
+	error_message_labyrinth_parsing(index, tree);
+	if (str != 0)
 		free(str);
 	if (tree->parsing.fd != 0)
 	{
@@ -85,7 +72,7 @@ void	error_central_verify_labyrinth(int index, t_tree *tree)
 	error_message_verify_labyrinth(index);
 	if (tree->parsing.fd != 0)
 	{
-		while((get_next_line(tree->parsing.fd, &str)) > 0)
+		while ((get_next_line(tree->parsing.fd, &str)) > 0)
 		{
 			free(str);
 			str = 0;

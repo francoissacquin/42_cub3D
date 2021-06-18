@@ -104,9 +104,11 @@ void	draw_calc(t_tree *tree)
 	if (tree->ray.draw_end >= tree->parsing.res_y)
 		tree->ray.draw_end = tree->parsing.res_y - 1;
 	if (tree->ray.side == 0)
-		tree->ray.wall_x = tree->image.play_y + tree->ray.perp_wall_dist * tree->ray.ray_dir_y;
+		tree->ray.wall_x = tree->image.play_y + tree->ray.perp_wall_dist
+			* tree->ray.ray_dir_y;
 	else
-		tree->ray.wall_x = tree->image.play_x + tree->ray.perp_wall_dist * tree->ray.ray_dir_x;
+		tree->ray.wall_x = tree->image.play_x + tree->ray.perp_wall_dist
+			* tree->ray.ray_dir_x;
 }
 
 void	tex_select(t_tree *tree)
@@ -114,29 +116,15 @@ void	tex_select(t_tree *tree)
 	if (tree->ray.side == 0)
 	{
 		if (tree->ray.ray_dir_x < 0)
-		{
-			tree->ray.tex_x = (int)(tree->ray.wall_x * (double)(tree->texture.w_tex_w));
 			tree->ray.tex_num = 'W';
-		}
 		else
-		{
-			tree->ray.tex_x = (int)(tree->ray.wall_x * (double)(tree->texture.e_tex_w));
-			tree->ray.tex_x = tree->texture.e_tex_w - tree->ray.tex_x - 1;
 			tree->ray.tex_num = 'E';
-		}
 	}
 	else
 	{
 		if (tree->ray.ray_dir_y < 0)
-		{
-			tree->ray.tex_x = (int)(tree->ray.wall_x * (double)(tree->texture.s_tex_w));
-			tree->ray.tex_x = tree->texture.s_tex_w - tree->ray.tex_x - 1;
 			tree->ray.tex_num = 'S';
-		}
 		else
-		{
-			tree->ray.tex_x = (int)(tree->ray.wall_x * (double)(tree->texture.n_tex_w));
 			tree->ray.tex_num = 'N';
-		}
 	}
 }

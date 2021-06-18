@@ -120,9 +120,7 @@ void	assign_lab_lines(int line, int line_len, int left_shift, t_tree *tree)
 		str = 0;
 		x++;
 	}
-	free(str);
-	close(tree->parsing.fd);
-	tree->parsing.fd = 0;
+	clear_parsing(str, tree);
 	tree->parsing.lab[x] = NULL;
 }
 

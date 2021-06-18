@@ -30,16 +30,14 @@ void	input_parsing(t_tree *tree)
 		if (str[0] != '\0')
 			check_conveyor_belt(&str, lab_start_line, tree);
 		if (str == 0)
-			break;
+			break ;
 		free(str);
 		str = 0;
 		lab_start_line++;
 	}
 	if (tree->parsing.lab == 0)
 		error_central_labyrinth_parsing(5, str, tree);
-	free(str);
-	close(tree->parsing.fd);
-	tree->parsing.fd = 0;
+	clear_parsing(str, tree);
 	init_floodfill(tree);
 }
 
@@ -48,34 +46,24 @@ void	check_conveyor_belt(char **str, int lab_start_line, t_tree *tree)
 	char	**res_split;
 
 	res_split = ft_split(*str, ' ');
+	conveyor_belt_error(res_split, *str, tree);
 	if (ft_strrchr("NSEW", res_split[0][0]))
-	{
-		if (ft_strlen_array(res_split) != 2)
-			error_central_parsing(2, res_split, *str, tree);
-		else
-			check_texture(res_split, *str, tree);
-	}
+		check_texture(res_split, *str, tree);
 	else if (res_split[0][0] == 'R' )
-	{
-		if (ft_strlen_array(res_split) != 3)
-			error_central_parsing(2, res_split, *str, tree);
-		else
-			check_resolution(res_split, *str, tree);
-	}
-	else if ((res_split[0][0] == 'C' && tree->swit.C == 0) || (res_split[0][0] == 'F' && tree->swit.F == 0))
+		check_resolution(res_split, *str, tree);
+	else if ((res_split[0][0] == 'C' && tree->swit.C == 0)
+		|| (res_split[0][0] == 'F' && tree->swit.F == 0))
 		check_cf_color(res_split, *str, tree);
 	else if (ft_strrchr(res_split[0], '1'))
 	{
 		res_split = send_help((char const **)res_split,
-			ft_strlen_array(res_split));
+				ft_strlen_array(res_split));
 		lab_parsing_main(*str, lab_start_line, tree);
 		*str = NULL;
 	}
-	else if (res_split[0] != NULL)
-		error_central_parsing(12, res_split, *str, tree);
 	if (res_split != NULL)
 		res_split = send_help((char const **)res_split,
-			ft_strlen_array(res_split));
+				ft_strlen_array(res_split));
 }
 
 void	check_cf_color(char **res_split, char *str, t_tree *tree)
@@ -137,7 +125,6 @@ void	check_resolution(char **res_split, char *str, t_tree *tree)
 void	check_texture(char **res_split, char *str, t_tree *tree)
 {
 	char	cardinal;
-
 
 	cardinal = texture_switch(res_split, tree);
 	if (res_split[1][0] == '.' && ft_strrchr("NSEW", cardinal))

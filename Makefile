@@ -34,12 +34,14 @@ SRCS = ./ft_atoi.c\
  ./floodfill_utils.c\
  ./parsing_utils_2.c\
  ./parsing_utils_3.c\
+ ./parsing_utils_4.c\
  ./key_movement.c\
  ./strafe_movement.c\
  ./key_management.c\
  ./closing_utils.c\
  ./wall_checks.c\
  ./raycasting_utils.c\
+ ./raycasting_utils_2.c\
  ./error_message.c\
  ./main.c
 
