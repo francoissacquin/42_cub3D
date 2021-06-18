@@ -42,22 +42,22 @@ char	texture_switch(char **res_split, t_tree *tree)
 	char	cardinal;
 
 	cardinal = 'X';
-	if (strncmp(res_split[0], "NO") == 0 && tree->swit.NO == 0)
+	if (ft_strcmp(res_split[0], "NO") == 0 && tree->swit.NO == 0)
 	{
 		cardinal = res_split[0][0];
 		tree->swit.NO = 1;
 	}
-	else if (strncmp(res_split[0], "SO") == 0 && tree->swit.SO == 0)
+	else if (ft_strcmp(res_split[0], "SO") == 0 && tree->swit.SO == 0)
 	{
 		cardinal = res_split[0][0];
 		tree->swit.SO = 1;
 	}
-	else if (strncmp(res_split[0], "WE") == 0 && tree->swit.WE == 0)
+	else if (ft_strcmp(res_split[0], "WE") == 0 && tree->swit.WE == 0)
 	{
 		cardinal = res_split[0][0];
 		tree->swit.WE = 1;
 	}
-	else if (strncmp(res_split[0], "EA") == 0 && tree->swit.EA == 0)
+	else if (ft_strcmp(res_split[0], "EA") == 0 && tree->swit.EA == 0)
 	{
 		cardinal = res_split[0][0];
 		tree->swit.EA = 1;

@@ -214,6 +214,7 @@ char	*ft_strrchr(const char *str, int c);
 char	*ft_substr(const char *s, unsigned int start, size_t len);
 size_t	ft_strlen(const char *str);
 int		ft_atoi(const char *str);
+int		ft_strcmp(char *str1, char *str2);
 
 // ft_split :
 char	**ft_split(char const *s, char c);
