@@ -61,6 +61,8 @@ void	check_conveyor_belt(char **str, int lab_start_line, t_tree *tree)
 		lab_parsing_main(*str, lab_start_line, tree);
 		*str = NULL;
 	}
+	else if (res_split[0] != NULL)
+		error_central_parsing(12, res_split, *str, tree);
 	if (res_split != NULL)
 		res_split = send_help((char const **)res_split,
 				ft_strlen_array(res_split));

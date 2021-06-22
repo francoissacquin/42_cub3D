@@ -18,8 +18,6 @@ void	conveyor_belt_error(char **res_split, char *str, t_tree *tree)
 		error_central_parsing(2, res_split, str, tree);
 	else if (res_split[0][0] == 'R' && ft_strlen_array(res_split) != 3)
 		error_central_parsing(2, res_split, str, tree);
-	else if (res_split[0] != NULL)
-		error_central_parsing(12, res_split, str, tree);
 }
 
 int		ft_strcmp(char *str1, char *str2)
